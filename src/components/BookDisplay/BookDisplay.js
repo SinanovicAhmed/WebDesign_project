@@ -1,8 +1,17 @@
 import React from "react";
-import { Fragment } from "react";
 import styles from "./BookDisplay.module.css";
 import Book from "./Book";
+import { useEffect } from "react";
+import { useState } from "react";
 const BookDisplay = (props) => {
+  const [filteredBooks, setFilteredBooks] = useState([]);
+
+  //first time component is created props.book is still empty so nothing renders until refresh
+  useEffect(() => {
+    setFilteredBooks(props.books);
+  }, [props.books]);
+
+  //getting all genres and authors from api
   let genreList =
     props.books.length > 0 &&
     props.books.map((book) => {
@@ -15,9 +24,29 @@ const BookDisplay = (props) => {
       return <option value={author.name}>{author.name}</option>;
     }, this);
 
+  //filter book
+  const filterBooks = (event) => {
+    event.preventDefault();
+    let genre = event.target[0].value;
+    let author = event.target[1].value;
+    let filteredList = props.books;
+
+    if (genre != "genre") {
+      filteredList = props.books.filter(function (value, index, arr) {
+        return value.genre === genre;
+      });
+    }
+    if (author != "author") {
+      filteredList = filteredList.filter(function (value, index, arr) {
+        console.log(value);
+        return value.author.name === author;
+      });
+    }
+    setFilteredBooks(filteredList);
+  };
   return (
     <div className={styles.container}>
-      <div className={styles.filter_section}>
+      <form className={styles.filter_section} onSubmit={filterBooks}>
         <select name="genre" id="genre">
           <option value="genre">genre</option>
           {genreList}
@@ -27,13 +56,11 @@ const BookDisplay = (props) => {
           {authorList}
         </select>
         <button className={styles.refresh_button}>refresh</button>
-      </div>
+      </form>
       <div className={styles.display_section}>
-        {props.books.map((book) => (
-          <Book book={book} />
+        {filteredBooks.map((book) => (
+          <Book key={Math.random() * 2.5} book={book} />
         ))}
-        <Book />
-        <Book />
       </div>
     </div>
   );

@@ -1,18 +1,14 @@
 import styles from "./Book.module.css";
 
-const Book = () => {
+const Book = (props) => {
+  const book = props.book;
   return (
     <div className={styles.container}>
-      <img
-        src="https://www.adobe.com/express/create/cover/media_178ebed46ae02d6f3284c7886e9b28c5bb9046a02.jpeg?width=400&format=jpeg&optimize=medium"
-        alt="Book"
-        width="230"
-        height="350"
-      />
+      <img src={book.image} alt="Book" width="230" height="350" />
       <div className={styles.book_info}>
         <div className={styles.book_author}>
-          <h2>Sin Eater (novel)</h2>
-          <p>by Megan Campisi</p>
+          <h2>{book.name}</h2>
+          <p>by {book.author.name}</p>
         </div>
         <div className={styles.book_buttons}>
           <svg
