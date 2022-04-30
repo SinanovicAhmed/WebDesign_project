@@ -1,0 +1,50 @@
+.container {
+  width: 100%;
+  min-height: calc(100vh - 7rem);
+  background-color: #bcbdc5;
+  padding: 0 10rem 0 10rem;
+}
+.filter_section {
+  padding-top: 5rem;
+}
+
+.filter_section select {
+  padding: 0.2rem 0rem 0.2rem 0.5rem;
+  margin-right: 3rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-family: "Ubuntu", sans-serif;
+  color: #272522;
+  width: 15rem;
+}
+.filter_section option {
+  padding: 0.2rem 0rem 0.2rem 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 900;
+  font-family: "Ubuntu", sans-serif;
+  color: #272522;
+}
+
+.refresh_button {
+  font-family: "Ubuntu", sans-serif;
+  padding: 0.4rem 0rem 0.4rem 0.6rem;
+  width: 10rem;
+  border-radius: 1.2rem;
+  background-color: #d43d1b;
+  font-size: 1.5rem;
+  font-weight: 900;
+  border: 1px solid #272522;
+  color: white;
+  cursor: pointer;
+}
+.refresh_button:hover {
+  background-color: #b14229;
+}
+
+.display_section {
+  width: 100%;
+  padding-top: 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

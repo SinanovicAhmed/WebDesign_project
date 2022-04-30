@@ -1,5 +1,6 @@
 import "./App.module.css";
 import Navbar from "./components/Navbar/Navbar";
+import BookDisplay from "./components/BookDisplay/BookDisplay";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -26,7 +27,12 @@ function App() {
     fetchAuthors();
   }, []);
 
-  return <Navbar />;
+  return (
+    <div>
+      <Navbar />
+      <BookDisplay books={books} authors={authors} />
+    </div>
+  );
 }
 
 export default App;
