@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: calc(100vh - 7rem);
+  background-color: #bcbdc5;
+  background-image: url("../../images/alfons-morales-YLSwjSy7stw-unsplash_edited2.jpg");
+  background-size: cover;
+  padding: 0 10rem 0 10rem;
+}
+.container h2 {
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  background-color: #272522;
+  border-radius: 1rem;
+  font-size: 2.5rem;
+  color: white;
+  box-shadow: 0px 0px 10px 3px black;
+  font-family: "Ubuntu", sans-serif;
+}
+.display_section {
+  width: 100%;
+  padding-top: 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

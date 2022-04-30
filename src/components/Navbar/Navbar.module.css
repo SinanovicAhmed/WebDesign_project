@@ -11,6 +11,10 @@
   font-size: 5rem;
   color: white;
   margin-left: 16.5rem;
+  cursor: pointer;
+}
+.nav_logo:hover {
+  transform: scale(1.03);
 }
 .nav_selection {
   display: flex;

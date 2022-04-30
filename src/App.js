@@ -1,12 +1,13 @@
 import "./App.module.css";
 import Navbar from "./components/Navbar/Navbar";
 import BookDisplay from "./components/BookDisplay/BookDisplay";
+import FavouriteBooks from "./components/FavouriteBooks/FavouriteBooks";
 import { useState, useEffect } from "react";
 
 function App() {
   const [books, setBooks] = useState([]);
   const [authors, setAuthors] = useState([]);
-  const [currentPage, setCurrentPage] = useState("main");
+  const [currentPage, setCurrentPage] = useState("home");
   //Books fetching
   const fetchBooks = async () => {
     const response = await fetch(
@@ -26,11 +27,18 @@ function App() {
     fetchBooks();
     fetchAuthors();
   }, []);
-
+  const pageChange = (page) => {
+    setCurrentPage(page);
+  };
+  console.log(currentPage);
   return (
     <div>
-      <Navbar />
-      <BookDisplay books={books} authors={authors} />
+      <Navbar pageChange={pageChange} />
+      {currentPage === "home" ? (
+        <BookDisplay books={books} authors={authors} />
+      ) : (
+        <FavouriteBooks />
+      )}
     </div>
   );
 }
