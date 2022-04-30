@@ -2,7 +2,7 @@ import styles from "./FavouriteBooks.module.css";
 import Book from "../BookDisplay/Book";
 import { useState } from "react";
 const FavouriteBooks = (props) => {
-  const [favouriteList, setFavouriteList] = useState();
+  const [favouriteList, setFavouriteList] = useState([]);
   return (
     <div className={styles.container}>
       <h2>Favourite Books</h2>
