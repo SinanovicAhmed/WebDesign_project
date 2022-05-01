@@ -12,6 +12,7 @@
   color: white;
   margin-left: 16.5rem;
   cursor: pointer;
+  user-select: none;
 }
 .nav_logo:hover {
   transform: scale(1.03);
@@ -24,6 +25,7 @@
 }
 
 .nav_selection p {
+  user-select: none;
   color: #ffff;
   font-weight: 400;
   font-size: 1.8rem;

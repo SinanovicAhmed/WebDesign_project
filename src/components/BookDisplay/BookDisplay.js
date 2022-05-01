@@ -31,18 +31,22 @@ const BookDisplay = (props) => {
     let author = event.target[1].value;
     let filteredList = props.books;
 
-    if (genre != "genre") {
+    if (genre !== "genre") {
       filteredList = props.books.filter(function (value, index, arr) {
         return value.genre === genre;
       });
     }
-    if (author != "author") {
+    if (author !== "author") {
       filteredList = filteredList.filter(function (value, index, arr) {
         console.log(value);
         return value.author.name === author;
       });
     }
     setFilteredBooks(filteredList);
+  };
+
+  const addToFavourites = (book) => {
+    props.addToFavourites(book);
   };
   return (
     <div className={styles.container}>
@@ -59,7 +63,12 @@ const BookDisplay = (props) => {
       </form>
       <div className={styles.display_section}>
         {filteredBooks.map((book) => (
-          <Book key={Math.random() * 2.5} book={book} />
+          <Book
+            key={Math.random() * 2.5}
+            book={book}
+            addToFavourites={addToFavourites}
+            favouriteList={props.favouriteList}
+          />
         ))}
       </div>
     </div>

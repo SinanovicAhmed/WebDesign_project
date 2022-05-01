@@ -1,0 +1,70 @@
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  min-height: calc(100vh - 7rem);
+  background-color: #bcbdc5;
+  background-image: url("../../images/alfons-morales-YLSwjSy7stw-unsplash_edited2.jpg");
+  background-size: cover;
+  padding: 0 10rem 0 10rem;
+}
+.container h2 {
+  margin-bottom: 4rem;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  border-radius: 1rem;
+  border-bottom: 0.5rem solid #d43d1b;
+  color: white;
+  padding: 1rem;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.form_container {
+  width: 100%;
+  max-width: 60rem;
+  min-width: 35rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #272522;
+}
+.book_form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  font-size: 3rem;
+}
+.book_form input {
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 2rem;
+}
+.book_form select {
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 2rem;
+}
+.book_form label {
+  font-size: 1.8rem;
+  font-family: "Ubuntu", sans-serif;
+  color: white;
+  margin-bottom: 0.3rem;
+}
+.book_form button {
+  margin: 0 auto;
+  cursor: pointer;
+  width: 14rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bolder;
+  color: white;
+  background-color: #d43d1b;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}

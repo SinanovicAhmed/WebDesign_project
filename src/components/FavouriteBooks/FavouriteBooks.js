@@ -1,14 +1,19 @@
 import styles from "./FavouriteBooks.module.css";
-import Book from "../BookDisplay/Book";
-import { useState } from "react";
+import FavouriteBook from "../BookDisplay/FavouriteBook";
 const FavouriteBooks = (props) => {
-  const [favouriteList, setFavouriteList] = useState([]);
+  const removeFavourite = (book) => {
+    props.removeFavourite(book);
+  };
   return (
     <div className={styles.container}>
-      <h2>Favourite Books</h2>
+      <h3>Favourite Books</h3>
       <div className={styles.display_section}>
-        {favouriteList.map((book) => (
-          <Book key={Math.random() * 2.5} book={book} />
+        {props.favouriteList.map((book) => (
+          <FavouriteBook
+            key={Math.random() * 2.5}
+            book={book}
+            removeFavourite={removeFavourite}
+          />
         ))}
       </div>
     </div>
