@@ -12,17 +12,17 @@ const BookDisplay = (props) => {
   }, [props.books]);
 
   //getting all genres and authors from api
-  let genreList =
-    props.books.length > 0 &&
-    props.books.map((book) => {
-      return <option value={book.genre}>{book.genre}</option>;
-    }, this);
 
-  let authorList =
-    props.authors.length > 0 &&
-    props.authors.map((author) => {
-      return <option value={author.name}>{author.name}</option>;
-    }, this);
+  let genreList = props.books.map((book) => {
+    return book.genre;
+  });
+  let uniqueGenreList = [...new Set(genreList)].map((genre) => {
+    return <option value={genre}>{genre}</option>;
+  });
+
+  let authorList = props.authors.map((author) => {
+    return <option value={author.name}>{author.name}</option>;
+  });
 
   //filter book
   const filterBooks = (event) => {
@@ -53,7 +53,7 @@ const BookDisplay = (props) => {
       <form className={styles.filter_section} onSubmit={filterBooks}>
         <select name="genre" id="genre">
           <option value="genre">genre (all)</option>
-          {genreList}
+          {uniqueGenreList}
         </select>
         <select name="author">
           <option value="author">author (all)</option>

@@ -1,5 +1,5 @@
 import styles from "./FavouriteBooks.module.css";
-import FavouriteBook from "../BookDisplay/FavouriteBook";
+import FavouriteBook from "./FavouriteBook";
 const FavouriteBooks = (props) => {
   const removeFavourite = (book) => {
     props.removeFavourite(book);

@@ -17,7 +17,7 @@ const Navbar = (props) => {
     borderBottom: "4px solid #D43D1B",
     borderRadius: "1rem",
   };
-  console.log(props.currentPage);
+
   return (
     <div className={styles.container}>
       <h2 className={styles.nav_logo} onClick={homeButton}>

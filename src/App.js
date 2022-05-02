@@ -1,4 +1,5 @@
 import "./App.module.css";
+import AddAuthor from "./components/AddAuthor/AddAuthor";
 import Navbar from "./components/Navbar/Navbar";
 import BookDisplay from "./components/BookDisplay/BookDisplay";
 import FavouriteBooks from "./components/FavouriteBooks/FavouriteBooks";
@@ -57,6 +58,7 @@ function App() {
                 authors={authors}
                 addToFavourites={addToFavourites}
                 favouriteList={favouriteBooks}
+                fetchBooks={fetchBooks}
               />
             );
           case "favourite":
@@ -67,9 +69,9 @@ function App() {
               />
             );
           case "addBook":
-            return <AddBook authors={authors} fetchBooks={fetchBooks} />;
+            return <AddBook authors={authors} />;
           case "addAuthor":
-            return "";
+            return <AddAuthor />;
           default:
             return null;
         }

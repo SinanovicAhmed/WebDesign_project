@@ -6,11 +6,11 @@ const Book = (props) => {
   const check = props.favouriteList.some((element) => element.id === book.id);
 
   const [isFavourite, setIsFavourite] = useState(check);
-
   const addFavourite = () => {
     props.addToFavourites(book);
     setIsFavourite(true);
   };
+
   return (
     <div className={styles.container}>
       <img src={book.image} alt="Book" width="230" height="350" />
