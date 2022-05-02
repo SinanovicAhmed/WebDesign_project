@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     fetchBooks();
     fetchAuthors();
-  }, []);
+  }, [currentPage]);
   const pageChange = (page) => {
     setCurrentPage(page);
   };
@@ -47,7 +47,7 @@ function App() {
 
   return (
     <div>
-      <Navbar pageChange={pageChange} />
+      <Navbar pageChange={pageChange} currentPage={currentPage} />
       {(() => {
         switch (currentPage) {
           case "home":
@@ -67,7 +67,7 @@ function App() {
               />
             );
           case "addBook":
-            return <AddBook authors={authors} />;
+            return <AddBook authors={authors} fetchBooks={fetchBooks} />;
           case "addAuthor":
             return "";
           default:

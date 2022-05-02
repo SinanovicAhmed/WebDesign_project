@@ -13,15 +13,35 @@ const Navbar = (props) => {
   const homeButton = () => {
     props.pageChange("home");
   };
+  const navBarStyle = {
+    borderBottom: "4px solid #D43D1B",
+    borderRadius: "1rem",
+  };
+  console.log(props.currentPage);
   return (
     <div className={styles.container}>
       <h2 className={styles.nav_logo} onClick={homeButton}>
         biblio
       </h2>
       <div className={styles.nav_selection}>
-        <p onClick={favouriteButton}>favourites</p>
-        <p onClick={addBookButton}>add book</p>
-        <p onClick={addAuthorButton}>add author</p>
+        <p
+          onClick={favouriteButton}
+          style={props.currentPage === "favourite" ? navBarStyle : {}}
+        >
+          favourites
+        </p>
+        <p
+          onClick={addBookButton}
+          style={props.currentPage === "addBook" ? navBarStyle : {}}
+        >
+          add book
+        </p>
+        <p
+          onClick={addAuthorButton}
+          style={props.currentPage === "addAuthor" ? navBarStyle : {}}
+        >
+          add author
+        </p>
       </div>
     </div>
   );

@@ -6,12 +6,41 @@ const AddBook = (props) => {
       return <option value={author.name}>{author.name}</option>;
     }, this);
   //check if link is image(not finished)
-  const checkImage = async (url) => {
-    console.log(url);
-    const res = await fetch(url);
-    const buff = await res.blob();
-    console.log(res, buff);
-    //return buff.type.startsWith("image/") && res.status === 200;
+  const checkIfImageExists = (url, callback) => {
+    const img = new Image();
+    img.src = url;
+
+    if (img.complete) {
+      callback(true);
+    } else {
+      img.onload = () => {
+        callback(true);
+      };
+      img.onerror = () => {
+        callback(false);
+      };
+    }
+  };
+  //post function
+  const postFunction = async (book) => {
+    console.log(book);
+    try {
+      const response = await fetch(
+        "https://ptf-web-dizajn-2022.azurewebsites.net/books",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(book),
+        }
+      );
+    } catch (error) {
+      console.log(error);
+      window.alert(
+        "Something went wrong! Book is not posted. Please try again."
+      );
+    }
   };
   //form submit
   const submitForm = (event) => {
@@ -25,16 +54,23 @@ const AddBook = (props) => {
       name: event.target[0].value,
       genre: event.target[1].value,
       image: event.target[2].value,
-      author: author[0].id,
+      authorId: author[0].id,
     };
-    //(not finished)
-    checkImage(book.image).then(function (result) {
-      imageStatus = result;
+
+    checkIfImageExists(book.image, (exists) => {
+      if (exists) {
+        imageStatus = true;
+      } else {
+        imageStatus = false;
+      }
     });
-    if ((imageStatus = true && event.target[4].value === "admin12345")) {
-      console.log("working");
+
+    if (imageStatus === true && event.target[4].value === "admin12345") {
+      postFunction(book);
+      //props.fetchBooks();
+    } else {
+      window.alert("Image link or password is not valid!");
     }
-    //(not finished)
   };
   return (
     <div className={styles.container}>

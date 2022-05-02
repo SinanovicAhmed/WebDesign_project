@@ -52,11 +52,11 @@ const BookDisplay = (props) => {
     <div className={styles.container}>
       <form className={styles.filter_section} onSubmit={filterBooks}>
         <select name="genre" id="genre">
-          <option value="genre">genre</option>
+          <option value="genre">genre (all)</option>
           {genreList}
         </select>
         <select name="author">
-          <option value="author">author</option>
+          <option value="author">author (all)</option>
           {authorList}
         </select>
         <button className={styles.refresh_button}>refresh</button>

@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+
   margin: 0 auto;
   min-height: calc(100vh - 7rem);
   background-color: #bcbdc5;
@@ -25,7 +26,7 @@
   font-size: 1.5rem;
   font-weight: 900;
   font-family: "Ubuntu", sans-serif;
-  color: #272522;
+  color: #3f3d3b;
   width: 15rem;
 }
 .filter_section option {
