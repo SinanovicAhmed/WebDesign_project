@@ -23,7 +23,6 @@ const AddBook = (props) => {
   };
   //post function
   const postFunction = async (book) => {
-    console.log(book);
     try {
       const response = await fetch(
         "https://ptf-web-dizajn-2022.azurewebsites.net/books",
@@ -35,6 +34,7 @@ const AddBook = (props) => {
           body: JSON.stringify(book),
         }
       );
+      console.log(response);
     } catch (error) {
       console.log(error);
       window.alert(

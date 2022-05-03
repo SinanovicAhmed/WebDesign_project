@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+  height: 3.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 3px;
+}
+.container input {
+  width: 17rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  font-family: "Ubuntu", sans-serif;
+}
+.container form {
+  display: flex;
+  align-items: center;
+}
+.container form svg {
+  margin-left: 4px;
+}
+.container button {
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.container svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.container svg:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
