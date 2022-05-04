@@ -3,7 +3,15 @@ import styles from "./DeleteModal.module.css";
 const DeleteModal = (props) => {
   const deleteBook = (event) => {
     event.preventDefault();
-    console.log(event);
+    console.log(event.target[0].value);
+    if (event.target[0].value === "admin12345") {
+      props.deleteBookMethod();
+      event.target[0].value = "";
+      props.removeFromList(props.book.id);
+    } else {
+      window.alert("Password is not valid!");
+      event.target[0].value = "";
+    }
   };
   return (
     <div className={styles.container}>

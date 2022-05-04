@@ -17,12 +17,23 @@ const Book = (props) => {
   const toggleModalFalse = () => {
     setToggleModal(false);
   };
+
+  const deleteBookMethod = (password) => {
+    fetch(`https://ptf-web-dizajn-2022.azurewebsites.net/books/${book.id}`, {
+      method: "DELETE",
+    });
+  };
   //.............................................................................
   return (
     <div className={styles.container}>
       <img src={book.image} alt="Book" width="230" height="350" />
       {toggleModal ? (
-        <DeleteModal toggleModalFalse={toggleModalFalse} />
+        <DeleteModal
+          book={book}
+          toggleModalFalse={toggleModalFalse}
+          deleteBookMethod={deleteBookMethod}
+          removeFromList={props.removeFromList}
+        />
       ) : (
         <div className={styles.book_info}>
           <div className={styles.book_author}>

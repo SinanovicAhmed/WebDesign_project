@@ -48,6 +48,14 @@ const BookDisplay = (props) => {
   const addToFavourites = (book) => {
     props.addToFavourites(book);
   };
+
+  const removeFromList = (id) => {
+    let tempList = filteredBooks.filter(function (value, index, arr) {
+      return value.id !== id;
+    });
+    console.log(tempList);
+    setFilteredBooks(tempList);
+  };
   return (
     <div className={styles.container}>
       <form className={styles.filter_section} onSubmit={filterBooks}>
@@ -68,6 +76,7 @@ const BookDisplay = (props) => {
             book={book}
             addToFavourites={addToFavourites}
             favouriteList={props.favouriteList}
+            removeFromList={removeFromList}
           />
         ))}
       </div>
