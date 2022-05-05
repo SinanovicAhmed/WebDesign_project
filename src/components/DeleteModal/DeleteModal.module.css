@@ -17,7 +17,7 @@
   align-items: center;
 }
 .container form svg {
-  margin-left: 4px;
+  margin-left: 2px;
 }
 .container button {
   background-color: transparent;
@@ -27,8 +27,9 @@
   height: 2.5rem;
 }
 .container svg {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.56rem;
+  height: 2.56rem;
+  overflow: visible;
 }
 .container svg:hover {
   transform: scale(1.1);

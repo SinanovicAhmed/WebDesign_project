@@ -25,6 +25,10 @@ const AddAuthor = () => {
     let aurhorName = `${event.target[0].value} ${event.target[1].value}`;
     if (event.target[2].value === "admin12345") {
       postFunction(aurhorName);
+      event.target[0].value =
+        event.target[1].value =
+        event.target[2].value =
+          "";
     } else {
       window.alert("Password is not valid!");
     }

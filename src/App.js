@@ -10,7 +10,23 @@ function App() {
   const [books, setBooks] = useState([]);
   const [authors, setAuthors] = useState([]);
   const [currentPage, setCurrentPage] = useState("home");
-  const [favouriteBooks, setFavouriteBooks] = useState([]);
+  const [favouriteBooks, setFavouriteBooks] = useState(() => {
+    let tempValue;
+    if (
+      localStorage.getItem("favBooks") === "[]" ||
+      JSON.parse(localStorage.getItem("favBooks")) === null
+    ) {
+      tempValue = [];
+    } else {
+      tempValue = JSON.parse(localStorage.getItem("favBooks"));
+    }
+    return tempValue;
+  });
+
+  //Storing favourites into local storage
+  useEffect(() => {
+    localStorage.setItem("favBooks", JSON.stringify(favouriteBooks));
+  }, [favouriteBooks]);
   //Books fetching
   const fetchBooks = async () => {
     const response = await fetch(
@@ -25,6 +41,7 @@ function App() {
     );
     setAuthors(await response.json());
   };
+
   //Initial fetching
   useEffect(() => {
     fetchBooks();

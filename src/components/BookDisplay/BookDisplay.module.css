@@ -2,12 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-
-  margin: 0 auto;
   min-height: calc(100vh - 7rem);
-  background-color: #bcbdc5;
-  background-image: url("../../images/alfons-morales-YLSwjSy7stw-unsplash_edited2.jpg");
-  background-size: cover;
   padding: 0 10rem 0 10rem;
 }
 
@@ -17,7 +12,10 @@
   padding: 1rem;
   background-color: #27252299;
   border-radius: 1rem;
-  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .filter_section select {
@@ -59,4 +57,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 850px) {
+  .filter_section select {
+    margin-right: 0;
+    width: 10rem;
+    font-size: 1.2rem;
+    margin: 0.5rem 0.2rem 0.5rem 0.2rem;
+  }
+  .container {
+    padding: 0 5rem 0 5rem;
+  }
+  .refresh_button {
+    padding: 0.3rem 0rem 0.3rem 0rem;
+    font-size: 1.4rem;
+    width: 8rem;
+  }
 }

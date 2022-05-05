@@ -67,7 +67,12 @@ const AddBook = (props) => {
 
     if (imageStatus === true && event.target[4].value === "admin12345") {
       postFunction(book);
-      //props.fetchBooks();
+      event.target[0].value =
+        event.target[1].value =
+        event.target[2].value =
+        event.target[3].value =
+        event.target[4].value =
+          "";
     } else {
       window.alert("Image link or password is not valid!");
     }

@@ -4,9 +4,6 @@
   flex-direction: column;
   margin: 0 auto;
   min-height: calc(100vh - 7rem);
-  background-color: #bcbdc5;
-  background-image: url("../../images/alfons-morales-YLSwjSy7stw-unsplash_edited2.jpg");
-  background-size: cover;
   padding: 0 10rem 0 10rem;
 }
 .container h3 {
