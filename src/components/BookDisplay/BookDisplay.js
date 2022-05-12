@@ -17,19 +17,11 @@ const BookDisplay = (props) => {
     return book.genre;
   });
   let uniqueGenreList = [...new Set(genreList)].map((genre) => {
-    return (
-      <option key={Math.random() * 10} value={genre}>
-        {genre}
-      </option>
-    );
+    return <option value={genre}>{genre}</option>;
   });
 
   let authorList = props.authors.map((author) => {
-    return (
-      <option key={Math.random() * 10} value={author.name}>
-        {author.name}
-      </option>
-    );
+    return <option value={author.name}>{author.name}</option>;
   });
 
   //filter book
