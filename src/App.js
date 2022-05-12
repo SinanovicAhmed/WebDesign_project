@@ -7,6 +7,7 @@ import AddBook from "./components/AddBook/AddBook";
 import { useState, useEffect } from "react";
 
 function App() {
+  document.title = "Biblio";
   const [books, setBooks] = useState([]);
   const [authors, setAuthors] = useState([]);
   const [currentPage, setCurrentPage] = useState("home");
