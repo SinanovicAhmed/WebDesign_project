@@ -1,9 +1,14 @@
 import styles from "./AddBook.module.css";
+
 const AddBook = (props) => {
   let authorList =
     props.authors.length > 0 &&
-    props.authors.map((author) => {
-      return <option value={author.name}>{author.name}</option>;
+    props.authors.map((author, index) => {
+      return (
+        <option key={index} value={author.name}>
+          {author.name}
+        </option>
+      );
     }, this);
   //check if link is image(not finished)
   const checkIfImageExists = (url, callback) => {
@@ -98,6 +103,7 @@ const AddBook = (props) => {
           <button>Add Book</button>
         </form>
       </div>
+      <button></button>
     </div>
   );
 };

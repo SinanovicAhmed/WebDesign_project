@@ -17,11 +17,19 @@ const BookDisplay = (props) => {
     return book.genre;
   });
   let uniqueGenreList = [...new Set(genreList)].map((genre) => {
-    return <option value={genre}>{genre}</option>;
+    return (
+      <option key={Math.random() * 10} value={genre}>
+        {genre}
+      </option>
+    );
   });
 
   let authorList = props.authors.map((author) => {
-    return <option value={author.name}>{author.name}</option>;
+    return (
+      <option key={Math.random() * 10} value={author.name}>
+        {author.name}
+      </option>
+    );
   });
 
   //filter book
@@ -38,7 +46,6 @@ const BookDisplay = (props) => {
     }
     if (author !== "author") {
       filteredList = filteredList.filter(function (value, index, arr) {
-        console.log(value);
         return value.author.name === author;
       });
     }
@@ -53,7 +60,6 @@ const BookDisplay = (props) => {
     let tempList = filteredBooks.filter(function (value, index, arr) {
       return value.id !== id;
     });
-    console.log(tempList);
     setFilteredBooks(tempList);
   };
   return (
@@ -72,7 +78,7 @@ const BookDisplay = (props) => {
       <div className={styles.display_section}>
         {filteredBooks.map((book) => (
           <Book
-            key={Math.random() * 2.5}
+            key={book.id}
             book={book}
             addToFavourites={addToFavourites}
             favouriteList={props.favouriteList}
