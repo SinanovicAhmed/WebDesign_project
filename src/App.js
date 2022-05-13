@@ -1,4 +1,5 @@
 import "./App.module.css";
+import React from "react";
 import AddAuthor from "./components/AddAuthor/AddAuthor";
 import Navbar from "./components/Navbar/Navbar";
 import BookDisplay from "./components/BookDisplay/BookDisplay";
@@ -8,6 +9,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   document.title = "Biblio";
+  const [fetchUpdate, setFetchUpdate] = useState(false);
   const [books, setBooks] = useState([]);
   const [authors, setAuthors] = useState([]);
   const [currentPage, setCurrentPage] = useState("home");
@@ -24,6 +26,14 @@ function App() {
     return tempValue;
   });
 
+  //Pokusaj rerendera knjiga nakon updejta
+  const setFetchFunction = () => {
+    if (fetchUpdate === false) {
+      setFetchUpdate(true);
+    } else {
+      setFetchUpdate(false);
+    }
+  };
   //Storing favourites into local storage
   useEffect(() => {
     localStorage.setItem("favBooks", JSON.stringify(favouriteBooks));
@@ -47,7 +57,8 @@ function App() {
   useEffect(() => {
     fetchBooks();
     fetchAuthors();
-  }, [currentPage]);
+  }, [currentPage, fetchUpdate]);
+
   const pageChange = (page) => {
     setCurrentPage(page);
   };
@@ -77,6 +88,7 @@ function App() {
                 addToFavourites={addToFavourites}
                 favouriteList={favouriteBooks}
                 fetchBooks={fetchBooks}
+                setFetchFunction={setFetchFunction}
               />
             );
           case "favourite":

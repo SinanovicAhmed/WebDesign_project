@@ -1,5 +1,5 @@
 import styles from "./AddBook.module.css";
-
+import React from "react";
 const AddBook = (props) => {
   let authorList =
     props.authors.length > 0 &&
@@ -51,7 +51,7 @@ const AddBook = (props) => {
   const submitForm = (event) => {
     let imageStatus;
     event.preventDefault();
-    let author = props.authors.filter(function (value, index, arr) {
+    let author = props.authors.filter(function(value, index, arr) {
       return value.name === event.target[3].value;
     });
 
@@ -72,12 +72,8 @@ const AddBook = (props) => {
 
     if (imageStatus === true && event.target[4].value === "admin12345") {
       postFunction(book);
-      event.target[0].value =
-        event.target[1].value =
-        event.target[2].value =
-        event.target[3].value =
-        event.target[4].value =
-          "";
+      event.target[0].value = event.target[1].value = event.target[2].value = event.target[3].value = event.target[4].value =
+        "";
     } else {
       window.alert("Image link or password is not valid!");
     }

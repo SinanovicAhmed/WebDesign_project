@@ -1,5 +1,5 @@
 import styles from "./DeleteModal.module.css";
-
+import React from "react";
 const DeleteModal = (props) => {
   const deleteBook = (event) => {
     event.preventDefault();

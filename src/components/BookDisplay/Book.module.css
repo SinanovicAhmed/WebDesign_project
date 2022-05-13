@@ -5,6 +5,7 @@
   display: inline-block;
   border-radius: 1rem;
   margin: 1rem 1rem 1rem 1rem;
+  position: relative;
 }
 .container img {
   user-select: none;
@@ -49,4 +50,22 @@
 }
 .book_buttons svg:hover {
   transform: scale(1.1);
+}
+
+.update_button {
+  border: none;
+  display: none;
+  background-color: #272522;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.update_button:hover {
+  cursor: pointer;
+}
+.container:hover .update_button {
+  display: block;
 }

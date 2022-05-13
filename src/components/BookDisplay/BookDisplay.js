@@ -72,9 +72,11 @@ const BookDisplay = (props) => {
           <Book
             key={book.id}
             book={book}
+            authors={props.authors}
             addToFavourites={addToFavourites}
             favouriteList={props.favouriteList}
             removeFromList={removeFromList}
+            setFetchFunction={props.setFetchFunction}
           />
         ))}
       </div>

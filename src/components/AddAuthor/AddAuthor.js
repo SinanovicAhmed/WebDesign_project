@@ -1,4 +1,5 @@
 import styles from "./AddAuthor.module.css";
+import React from "react";
 const AddAuthor = () => {
   const postFunction = async (authorName) => {
     try {
@@ -12,6 +13,8 @@ const AddAuthor = () => {
           body: JSON.stringify({ name: authorName }),
         }
       );
+      console.log(response);
+      console.log(response);
     } catch (error) {
       console.log(error);
       window.alert(
@@ -25,10 +28,8 @@ const AddAuthor = () => {
     let aurhorName = `${event.target[0].value} ${event.target[1].value}`;
     if (event.target[2].value === "admin12345") {
       postFunction(aurhorName);
-      event.target[0].value =
-        event.target[1].value =
-        event.target[2].value =
-          "";
+      event.target[0].value = event.target[1].value = event.target[2].value =
+        "";
     } else {
       window.alert("Password is not valid!");
     }

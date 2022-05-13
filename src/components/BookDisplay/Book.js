@@ -1,11 +1,14 @@
 import styles from "./Book.module.css";
+import React from "react";
 import { useState } from "react";
 import DeleteModal from "../DeleteModal/DeleteModal";
+import UpdateForm from "../UpdateForm/UpdateForm";
 const Book = (props) => {
   const book = props.book;
   const check = props.favouriteList.some((element) => element.id === book.id);
   const [isFavourite, setIsFavourite] = useState(check);
   const [toggleModal, setToggleModal] = useState(false);
+  const [updateForm, setUpdateForm] = useState(false);
   //.............................................................................
   const addFavourite = () => {
     props.addToFavourites(book);
@@ -23,10 +26,42 @@ const Book = (props) => {
       method: "DELETE",
     });
   };
+  const toggleUpdateForm = () => {
+    if (updateForm === false) {
+      setUpdateForm(true);
+    } else {
+      setUpdateForm(false);
+    }
+  };
   //.............................................................................
   return (
     <div className={styles.container}>
-      <img src={book.image} alt="Book" width="230" height="350" />
+      <button className={styles.update_button} onClick={toggleUpdateForm}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="white"
+          strokeWidth="3"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+          />
+        </svg>
+      </button>
+      {updateForm ? (
+        <UpdateForm
+          authors={props.authors}
+          book={book}
+          setFetchFunction={props.setFetchFunction}
+        />
+      ) : (
+        <img src={book.image} alt="Book" width="230" height="350" />
+      )}
+
       {toggleModal ? (
         <DeleteModal
           book={book}
