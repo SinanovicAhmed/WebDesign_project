@@ -49,9 +49,9 @@ const AddBook = (props) => {
   };
   //form submit
   const submitForm = (event) => {
-    let imageStatus;
     event.preventDefault();
-    let author = props.authors.filter(function(value, index, arr) {
+    let imageStatus;
+    let author = props.authors.filter(function (value, index, arr) {
       return value.name === event.target[3].value;
     });
 
@@ -72,8 +72,12 @@ const AddBook = (props) => {
 
     if (imageStatus === true && event.target[4].value === "admin12345") {
       postFunction(book);
-      event.target[0].value = event.target[1].value = event.target[2].value = event.target[3].value = event.target[4].value =
-        "";
+      event.target[0].value =
+        event.target[1].value =
+        event.target[2].value =
+        event.target[3].value =
+        event.target[4].value =
+          "";
     } else {
       window.alert("Image link or password is not valid!");
     }

@@ -61,15 +61,16 @@ const UpdateForm = (props) => {
     };
     // if new submited book is same as previous we shouldnt do anything
     if (newBook !== props.book) {
-      let imageStatus = true; //if image is not changed we can asume it exist because we checked it
-      if (props.book.image !== newBook.image)
-        checkIfImageExists(newBook.image, (exists) => {
-          if (exists) {
-            imageStatus = true;
-          } else {
-            imageStatus = false;
-          }
-        });
+      let imageStatus; //if image is not changed we can asume it exist because we checked it
+
+      checkIfImageExists(newBook.image, (exists) => {
+        if (exists) {
+          imageStatus = true;
+        } else {
+          imageStatus = false;
+        }
+      });
+
       if (imageStatus === true && event.target[4].value === "admin12345") {
         await putFunction(newBook);
         props.setFetchFunction();

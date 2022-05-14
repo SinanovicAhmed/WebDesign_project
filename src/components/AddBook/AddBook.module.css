@@ -70,4 +70,7 @@
   .form_container {
     transform: scale(0.9);
   }
+  .book_form {
+    width: 70%;
+  }
 }
