@@ -11,7 +11,7 @@ const UpdateForm = (props) => {
       );
     }, this);
 
-  const submitForm = (event) => {
+  const submitForm = async (event) => {
     let author = props.authors.filter(function (value, index, arr) {
       return value.name === event.target[3].value;
     });
@@ -39,6 +39,26 @@ const UpdateForm = (props) => {
         };
       }
     };
+    const putFunction = async (newBook) => {
+      try {
+        const response = await fetch(
+          "https://ptf-web-dizajn-2022.azurewebsites.net/books",
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newBook),
+          }
+        );
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+        window.alert(
+          "Something went wrong! Book is not updated. Please try again."
+        );
+      }
+    };
     // if new submited book is same as previous we shouldnt do anything
     if (newBook !== props.book) {
       let imageStatus = true; //if image is not changed we can asume it exist because we checked it
@@ -51,37 +71,14 @@ const UpdateForm = (props) => {
           }
         });
       if (imageStatus === true && event.target[4].value === "admin12345") {
-        putFunction(newBook);
-        setTimeout(() => {
-          props.setFetchFunction();
-          console.log("fetching");
-        }, 2000);
+        await putFunction(newBook);
+        props.setFetchFunction();
       } else {
         window.alert("Image link or password is not valid!");
       }
     }
   };
 
-  const putFunction = async (newBook) => {
-    try {
-      const response = await fetch(
-        "https://ptf-web-dizajn-2022.azurewebsites.net/books",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newBook),
-        }
-      );
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-      window.alert(
-        "Something went wrong! Book is not updated. Please try again."
-      );
-    }
-  };
   return (
     <form className={styles.book_form} onSubmit={submitForm}>
       <label>Title</label>
