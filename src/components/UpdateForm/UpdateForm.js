@@ -12,7 +12,7 @@ const UpdateForm = (props) => {
     }, this);
 
   const submitForm = (event) => {
-    let author = props.authors.filter(function(value, index, arr) {
+    let author = props.authors.filter(function (value, index, arr) {
       return value.name === event.target[3].value;
     });
     event.preventDefault();
@@ -52,7 +52,10 @@ const UpdateForm = (props) => {
         });
       if (imageStatus === true && event.target[4].value === "admin12345") {
         putFunction(newBook);
-        props.setFetchFunction();
+        setTimeout(() => {
+          props.setFetchFunction();
+          console.log("fetching");
+        }, 2000);
       } else {
         window.alert("Image link or password is not valid!");
       }
