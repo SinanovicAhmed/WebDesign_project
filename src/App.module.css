@@ -12,6 +12,7 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
+  background-color: #bcbdc5;
   background-image: url("./images/alfons-morales-YLSwjSy7stw-unsplash_edited2.jpg");
   background-size: 250vh;
 }
